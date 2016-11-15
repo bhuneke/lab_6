@@ -45,7 +45,7 @@ function renderHeaderRow () {
   tableRow.appendChild(blankTableHeader);
 
   for (var i = 0; i < storeHours.length; i++) {
-    hourlyTableHeader = document.createElement('td');//create element
+    hourlyTableHeader = document.createElement('th');//create element
     hourlyTableHeader.textContent = storeHours[i];//update content
     tableRow.appendChild(hourlyTableHeader);//put it somewhere
   }
@@ -64,6 +64,7 @@ CookieStore.prototype.toHtml = function (){
   var tableRow = document.createElement('tr');
   var nameTableHeader = document.createElement('th');
   var totalTableData = document.createElement('td');
+  totalTableData.setAttribute('class', 'totalCell');
   var hourlyTableData;
 
   nameTableHeader.textContent = this.storeName;

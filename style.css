@@ -1,0 +1,18 @@
+* {
+  font-family: Arial;
+}
+table {
+  border: 1px solid black;
+  padding: 5px;
+}
+th, td {
+  border: .5px solid black;
+  text-align: center;
+  padding: 5px;
+}
+th {
+  background-color: #d3d3d3;
+}
+.totalCell {
+  background-color: #ecc;
+}
