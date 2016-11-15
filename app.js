@@ -15,35 +15,41 @@ var firstAndPike = {
     var total = (this.avgCookiesPerCustomer * this.randomHourlyCustomers());
     return total;
   },
+  total: 0,
   salesHourly: function(){
     for (var i = 0; i < this.storeHours.length; i++) {
       var randomCookies = Math.round(this.cookiesPurchasedHourly());
       this.cookieArray[i] = (this.storeHours[i] + ': ' + randomCookies + ' cookies');
+      this.total += randomCookies;
     }
+    return this.total;
+    console.log('total: ' + this.total);
     console.log(this.cookieArray);
   },
   cookieArray: [],
   listCreation: function (){
+    this.salesHourly();
     var contentArea = document.getElementById('content_area');
     console.log(this.cookieArray);
     var h1 = document.createElement('h1');
     h1.textContent = '1st and Pike';
     var ul = document.createElement('ul');
+    var li;
+    var liTotal = document.createElement('li');
     for (var i = 0; i < this.cookieArray.length; i++) {
+      li = document.createElement('li');
       this.cookieArray[i];
-      var li = document.createElement('li');
       li.textContent = this.cookieArray[i];
       ul.appendChild(li);
     }
+    liTotal.textContent = 'Total: ' + this.total + ' cookies';
+    ul.appendChild(liTotal);
     contentArea.appendChild(h1);
     contentArea.appendChild(ul);
   }
 };
-//Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
 console.log(firstAndPike.randomHourlyCustomers());
 console.log(firstAndPike.cookiesPurchasedHourly());
 console.log(firstAndPike.avgCookiesPerCustomer);
-console.log(firstAndPike.salesHourly());
 console.log(firstAndPike.cookieArray);
 firstAndPike.listCreation();
-console.log(firstAndPike.total);
