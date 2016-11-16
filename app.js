@@ -2,6 +2,7 @@
 
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var cookiesByHour = [];
+var stores = [];
 
 /*var storeArray = function() {
   for (var i = 0; i < storeHours.length; i++){
@@ -34,8 +35,9 @@ CookieStore.prototype.cookiesPurchasedHourly = function() {
 };
 
 CookieStore.prototype.totalSalesPerLocation = function() {
+  var randomCookies;
   for (var i = 0; i < storeHours.length; i++) {
-    var randomCookies = this.cookiesPurchasedHourly();
+    randomCookies = this.cookiesPurchasedHourly();
     this.cookieArray[i] = randomCookies;
     this.total += randomCookies;
     cookiesByHour[i] += randomCookies;
@@ -53,7 +55,7 @@ function totalSalesPerHour () {
   var totalAllStores = 0;
   for (var i = 0; i < storeHours.length; i++) {
     for (var i = 1; i < 4; i++) {
-      totalAllStores += cookieArray[0];
+       totalAllStores += cookieArray[0];
     }
   }
   return totalAllStores;
@@ -62,6 +64,26 @@ function totalSalesPerHour () {
 //make array of all store locations
 //go over each store and for each store add up the cookies in that slot in the array
 //storeArray();
+
+var storeForm = document.getElementById('store_form');
+
+storeForm.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  var storeName = event.target.store_name.value;
+  var minHourlyCustomers = event.target.min_cust.value;
+  var maxHourlyCustomers = event.target.max_cust.value;
+  var avgCookiesPerCustomer = event.target.avg_cookies;
+
+  var newStore = new CookieStore(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer);
+  stores.push(newStore);
+
+  event.target.store_name.value = '';
+  event.target.min_cust.value = '';
+  event.target.max_cust.value = '';
+  event.target.avg_cookies = '';
+}
 
 function renderHeaderRow () {
   var storeTable = document.getElementById('store_table');
