@@ -13,6 +13,10 @@ th, td {
 th {
   background-color: #d3d3d3;
 }
+
+tfoot{
+  background-color: #ecc;
+}
 .totalCell {
   background-color: #ecc;
 }

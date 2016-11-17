@@ -1,0 +1,64 @@
+* {
+  font-family: Arial;
+
+}
+
+header {
+  background-color: #d3d3d3;
+  padding: 10px;
+}
+nav {
+  width: 960px;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+}
+
+nav img {
+  display: inline-block;
+  margin: 0;
+}
+nav ul li{
+  margin: 0 2%;
+  float: left;
+  list-style-type: none;
+  background-color: silver;
+  padding: 15px;
+}
+
+main{
+  font-family: sans-serif;
+  width: 960px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  font-family: serif;
+  color: salmon;
+}
+
+h1{
+  font-size: 56px;
+  text-align: center;
+}
+.featured_banner {
+  display: inline-block;
+  position: relative;
+}
+#cookie_facts {
+  display: inline-block;
+  width: 440px;
+  height: 375px;
+  position: absolute;
+}
+
+#fact_header h2{
+  text-align: center;
+}
+
+footer {
+  background-color: #d3d3d3;
+  padding: 10px;
+  text-align: center;
+}
