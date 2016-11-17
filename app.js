@@ -1,15 +1,8 @@
 'use strict';
 
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-var cookiesByHour = [];
 var stores = [];
 var totalSalesArray = [];
-
-/*var storeArray = function() {
-  for (var i = 0; i < storeHours.length; i++){
-    cookiesByHour[i] = 0;
-  }
-};*/
 
 function CookieStore(storeName, minHourlyCustomers, maxHourlyCustomers, avgCookiesPerCustomer) {
   this.storeName = storeName;
@@ -41,25 +34,24 @@ CookieStore.prototype.totalSalesPerLocation = function() {
     randomCookies = this.cookiesPurchasedHourly();
     this.cookieArray[i] = randomCookies;
     this.total += randomCookies;
-    cookiesByHour[i] += randomCookies;
   };
   return this.total;
 };
 
 function totalSalesPerHour() {
-  var totalAllStores = 0;
+  var total;
   for (var i = 0; i < storeHours.length; i++) {
-    for(var y = 0; y < stores.length; i++) {
-      totalAllStores += ;
+    total = 0;
+    console.log('1st: ' + total + ' store hour: ' + storeHours[i]);
+    for(var y = 0; y < stores.length; y++) {
+      console.log(stores[y].cookieArray[i]);
+      console.log(stores[y]);
+      total += stores[y].cookieArray[i];
     }
+    totalSalesArray.push(total);
   }
-  return totalAllStores;
-
+  console.log(total);
 }
-
-//make array of all store locations
-//go over each store and for each store add up the cookies in that slot in the array
-//storeArray();
 
 var storeForm = document.getElementById('store_form');
 
@@ -81,6 +73,7 @@ function handleSubmit(event) {
   event.target.min_cust.value = '';
   event.target.max_cust.value = '';
   event.target.avg_cookies.value = '';
+
 }
 
 function renderHeaderRow () {
@@ -143,7 +136,7 @@ function renderFooterRow(){
 
   for (var i = 0; i < storeHours.length; i++) {
     hourlyTableFooter = document.createElement('td');//create element
-    hourlyTableFooter.textContent = totalSalesByHour;//update content
+    hourlyTableFooter.textContent = totalSalesArray[i];//update content
     tableRow.appendChild(hourlyTableFooter);//put it somewhere
   }
 
@@ -152,14 +145,6 @@ function renderFooterRow(){
 
   storeTable.appendChild(tableRow);
 }
-
-
-
-/* put all objects into an array
-iterate over that array
-for each item in the store array, want to access cookiesArray and pull out information for that one array item and stash it somewhere
-add them together while walking through
-*/
 
 var pike = new CookieStore('1st and Pike', 23, 65, 6.3);
 console.log(pike);
@@ -179,47 +164,59 @@ stores.push(capitolHill);
 
 var alki = new CookieStore('Alki', 2, 16, 4.6);
 console.log(alki);
-stores.push(alki);
+
+//need to loop over stores array to call html
+//need to call loop to html at event
+
+// function renderTable() {
+//   for (var i = 0; i < stores.length; i++) {
+//     stores[i].toHtml()
+//     stores.push(stores[i]);
+//   }
+// }
 
 pike.toHtml();
+stores.push(alki);
 
-console.log('randomHourlyCustomers: ' + pike.randomHourlyCustomers());
-console.log('cookiesPurchasedHourly: ' + pike.cookiesPurchasedHourly());
-console.log('totalSalesPerLocation: ' + pike.totalSalesPerLocation());
-console.log('cookieArray: ' + pike.cookieArray);
+// console.log('randomHourlyCustomers: ' + pike.randomHourlyCustomers());
+// console.log('cookiesPurchasedHourly: ' + pike.cookiesPurchasedHourly());
+// console.log('totalSalesPerLocation: ' + pike.totalSalesPerLocation());
+// console.log('cookieArray: ' + pike.cookieArray);
 //console.log('cookieArray: ' + pike.cookieArray[]);
 
 seaTacAirport.toHtml();
 
-console.log('randomHourlyCustomers: ' + seaTacAirport.randomHourlyCustomers());
-console.log('cookiesPurchasedHourly: ' + seaTacAirport.cookiesPurchasedHourly());
-console.log('totalSalesPerLocation: ' + seaTacAirport.totalSalesPerLocation());
-console.log('cookieArray: ' + seaTacAirport.cookieArray);
+// console.log('randomHourlyCustomers: ' + seaTacAirport.randomHourlyCustomers());
+// console.log('cookiesPurchasedHourly: ' + seaTacAirport.cookiesPurchasedHourly());
+// console.log('totalSalesPerLocation: ' + seaTacAirport.totalSalesPerLocation());
+// console.log('cookieArray: ' + seaTacAirport.cookieArray);
 
 seattleCenter.toHtml();
 
-console.log('randomHourlyCustomers: ' + seattleCenter.randomHourlyCustomers());
-console.log('cookiesPurchasedHourly: ' + seattleCenter.cookiesPurchasedHourly());
-console.log('totalSalesPerLocation: ' + seattleCenter.totalSalesPerLocation());
-console.log('cookieArray: ' + seattleCenter.cookieArray);
+// console.log('randomHourlyCustomers: ' + seattleCenter.randomHourlyCustomers());
+// console.log('cookiesPurchasedHourly: ' + seattleCenter.cookiesPurchasedHourly());
+// console.log('totalSalesPerLocation: ' + seattleCenter.totalSalesPerLocation());
+// console.log('cookieArray: ' + seattleCenter.cookieArray);
 
 capitolHill.toHtml();
 
-console.log('randomHourlyCustomers: ' + capitolHill.randomHourlyCustomers());
-console.log('cookiesPurchasedHourly: ' + capitolHill.cookiesPurchasedHourly());
-console.log('totalSalesPerLocation: ' + capitolHill.totalSalesPerLocation());
-console.log('cookieArray: ' + capitolHill.cookieArray);
+// console.log('randomHourlyCustomers: ' + capitolHill.randomHourlyCustomers());
+// console.log('cookiesPurchasedHourly: ' + capitolHill.cookiesPurchasedHourly());
+// console.log('totalSalesPerLocation: ' + capitolHill.totalSalesPerLocation());
+// console.log('cookieArray: ' + capitolHill.cookieArray);
 
 alki.toHtml();
 
-console.log('randomHourlyCustomers: ' + alki.randomHourlyCustomers());
-console.log('cookiesPurchasedHourly: ' + alki.cookiesPurchasedHourly());
-console.log('totalSalesPerLocation: ' + alki.totalSalesPerLocation());
-console.log('cookieArray: ' + alki.cookieArray);
+// console.log('randomHourlyCustomers: ' + alki.randomHourlyCustomers());
+// console.log('cookiesPurchasedHourly: ' + alki.cookiesPurchasedHourly());
+// console.log('totalSalesPerLocation: ' + alki.totalSalesPerLocation());
+// console.log('cookieArray: ' + alki.cookieArray);
 
 totalSalesPerHour();
-totalSalesArray.push(totalAllStores);
+
 renderFooterRow();
+console.dir('stores: ' + stores);
+console.log(pike);
 
 //console.log('cookiesByHour: ' + cookiesByHour);
 
