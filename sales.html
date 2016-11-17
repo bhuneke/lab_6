@@ -6,12 +6,19 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <table id='store_table'></table>
+    <table id='store_table'>
+      <thead id='table_header'>
+      </thead>
+      <tbody id='table_body'>
+      </tbody>
+      <tfoot id='table_footer'>
+      </tfoot>
+    </table>
     <form id='store_form'>
       <input type="text" placeholder="Store Name" name="store_name">
-      <input type="text" placeholder="Minimum Customers per Hour" name="min_cust">
-      <input type="text" placeholder="Maximum Customers per Hour" name="max_cust">
-      <input type="text" placeholder="Average Cookies per Customer" name="avg_cookies">
+      <input type="number" placeholder="Minimum Customers per Hour" name="min_cust">
+      <input type="number" placeholder="Maximum Customers per Hour" name="max_cust">
+      <input type="number" placeholder="Average Cookies per Customer" name="avg_cookies">
       <input type="submit">
     </form>
     <script src='app.js'></script>
