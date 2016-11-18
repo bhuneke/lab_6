@@ -50,11 +50,18 @@ h1{
   width: 300px;
   border: 1px solid white;
   position: relative;
+  float: left;
 }
 
 img {
   display: inline-block;
   position: relative;
+  float: right;
+  
+}
+
+.clear {
+  clear: both;
 }
 
 footer {
