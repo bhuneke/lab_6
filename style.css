@@ -1,22 +1,50 @@
 * {
   font-family: Arial;
 }
+h1, h2, h3 {
+  text-transform: uppercase;
+  font-family: serif;
+  color: salmon;
+}
+
+h1{
+  font-size: 56px;
+  text-align: center;
+}
+
 table {
   border: 1px solid black;
   padding: 5px;
+  margin: 0 auto;
 }
+
 th, td {
   border: .5px solid black;
   text-align: center;
   padding: 5px;
 }
+
 th {
   background-color: #d3d3d3;
 }
 
 tfoot{
-  background-color: #ecc;
+  background-color: salmon;
 }
+
 .totalCell {
-  background-color: #ecc;
+  background-color: salmon;
+}
+
+#store_form {
+  margin: 0 auto;
+}
+
+p {
+  background-color: : #d3d3d3;
+  padding: 10px;
+}
+
+img {
+  margin: 0 auto;
 }
