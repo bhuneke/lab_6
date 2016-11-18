@@ -35,10 +35,6 @@ main{
   margin: 0 auto;
 }
 
-main img {
-  margin: 45px;
-}
-
 h1, h2, h3 {
   text-transform: uppercase;
   font-family: serif;
@@ -49,25 +45,16 @@ h1{
   font-size: 56px;
   text-align: center;
 }
-.featured_banner {
-  display: inline-block;
+
+#stores {
+  width: 300px;
+  border: 1px solid white;
   position: relative;
 }
-#cookie_facts {
+
+img {
   display: inline-block;
-  width: 600px;
-  height: 700px;
-  position: absolute;
-  margin: left;
-  font-size: 14px;
-}
-
-#fact_header h2{
-  text-align: center;
-}
-
-div ul li ul li {
-  color: #d3d3d3;
+  position: relative;
 }
 
 footer {
